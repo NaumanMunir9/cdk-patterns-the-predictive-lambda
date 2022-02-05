@@ -27,3 +27,6 @@ train_set_labels = train_set["address"].copy()
 # train the model
 model = KNeighborsClassifier(n_neighbors=2, weights="distance", algorithm="auto")
 model.fit(train_set_no_labels, train_set_labels)
+
+# export the model
+joblib.dump(model, "chipotle.pkl")
