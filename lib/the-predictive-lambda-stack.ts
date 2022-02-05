@@ -7,5 +7,10 @@ import * as apigateway from "aws-cdk-lib/aws-apigateway";
 export class ThePredictiveLambdaStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
+
+    // ======================================================================
+    /**
+     * The Lambda function that will be called by the API Gateway
+     */
   }
 }

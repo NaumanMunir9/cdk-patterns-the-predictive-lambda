@@ -20,3 +20,6 @@ stripped_store = stripped_store.drop_duplicates(keep="first")
 # split the data into training and testing
 train_set, test_set = train_test_split(stripped_store, test_size=0.2, random_state=42)
 
+# split data from labels
+train_set_no_labels = train_set.drop("address", axis=1)
+train_set_labels = train_set["address"].copy()
