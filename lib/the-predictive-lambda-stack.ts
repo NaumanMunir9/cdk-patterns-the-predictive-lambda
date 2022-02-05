@@ -12,5 +12,14 @@ export class ThePredictiveLambdaStack extends Stack {
     /**
      * The Lambda function that will be called by the API Gateway
      */
+    const PredictiveLambda = new lambda.DockerImageFunction(
+      this,
+      "PredictiveLambda",
+      {
+        code: lambda.DockerImageCode.fromImageAsset("model"),
+        memorySize: 4096,
+        timeout: cdk.Duration.seconds(10),
+      }
+    );
   }
 }
