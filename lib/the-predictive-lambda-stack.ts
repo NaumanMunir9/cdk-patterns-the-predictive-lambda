@@ -21,5 +21,16 @@ export class ThePredictiveLambdaStack extends Stack {
         timeout: cdk.Duration.seconds(10),
       }
     );
+
+    // ======================================================================
+    /**
+     * The API Gateway that will be used to call the Lambda function
+     * Defines an API Gateway REST API with AWS Lambda proxy integration
+     */
+    const api = new apigateway.LambdaRestApi(this, "PredictiveAPI", {
+      handler: PredictiveLambda,
+      // An integration to use as a default for all methods created within this API unless an integration is specified.
+      defaultIntegration: new apigateway.LambdaIntegration(PredictiveLambda), // Integrates an AWS Lambda function to an API Gateway method.
+    });
   }
 }
