@@ -32,5 +32,14 @@ export class ThePredictiveLambdaStack extends Stack {
       // An integration to use as a default for all methods created within this API unless an integration is specified.
       defaultIntegration: new apigateway.LambdaIntegration(PredictiveLambda), // Integrates an AWS Lambda function to an API Gateway method.
     });
+
+    // ======================================================================
+    /**
+     * Creates an CfnOutput value for this stack
+     * This is used to create an output in the CDK app
+     */
+    new cdk.CfnOutput(this, "PredictiveAPIURL", {
+      value: api.url,
+    });
   }
 }
