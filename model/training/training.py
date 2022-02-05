@@ -23,3 +23,7 @@ train_set, test_set = train_test_split(stripped_store, test_size=0.2, random_sta
 # split data from labels
 train_set_no_labels = train_set.drop("address", axis=1)
 train_set_labels = train_set["address"].copy()
+
+# train the model
+model = KNeighborsClassifier(n_neighbors=2, weights="distance", algorithm="auto")
+model.fit(train_set_no_labels, train_set_labels)
